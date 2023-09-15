@@ -1,0 +1,2 @@
+# trioDinamico
+manga de bolaceros
