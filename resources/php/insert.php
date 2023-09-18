@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     //DIE se utiliza para imprimir un mensaje y terminar la ejecución del script en ese punto
 
-    $sql = "INSERT INTO usuarios (dni, nombre, apellido, fecha_nacimiento) VALUES (:dni, :nombre, :apellido, :fecha_nacimiento)";
+    $sql = "INSERT INTO alumno (dni, nombre, apellido, fecha_nacimiento) VALUES (:dni, :nombre, :apellido, :fecha_nacimiento)";
     
     $stmt = $conection -> Prepare($sql);
     $stmt->bindParam(":dni",$dni);
