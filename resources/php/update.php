@@ -19,12 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica si se ha enviado una sol
     // A partir de aquí, los datos del alumno se han actualizado en la base de datos.
 }
 
-$id = $_GET["dni"]; // Obtiene el valor del parámetro 'dni' desde la URL.
+$dni = $_GET["dni"]; // Obtiene el valor del parámetro 'dni' desde la URL.
 $query = "SELECT * FROM alumno WHERE dni = :dni"; // Prepara una consulta SQL para seleccionar un alumno por su dni.
 $stmt = $conection->prepare($query); // Prepara la consulta.
 $stmt->bindParam(":dni", $dni); // Vincula el parámetro :dni con la variable $dni.
 $stmt->execute(); // Ejecuta la consulta SQL.
 $alumno = $stmt->fetch(); // Obtiene la primera fila de resultados y la almacena en $alumno.
+
+
 
 $dni = $alumno['dni']; // Obtiene el dni del alumno desde la fila recuperada.
 $nombre = $alumno['nombre']; // Obtiene el nombre del alumno desde la fila recuperada.
