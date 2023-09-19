@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(":nombre",$nombre);
     $stmt->bindParam(":apellido",$apellido);
     $stmt->bindParam(":fecha_nacimiento",$fecha_nacimiento);
-    print_r ("La jugadora fue creada con éxito");
+    print_r ("El alumno/a fue creado/a con éxito");
     $stmt->Execute();
 }
 ?>
