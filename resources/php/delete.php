@@ -2,7 +2,7 @@
 require_once "conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['dni'];
+    $dni = $_POST['dni'];
 
     // Eliminar alumno
     $query = "DELETE FROM alumno WHERE dni = :dni";
