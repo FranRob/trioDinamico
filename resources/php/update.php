@@ -33,20 +33,3 @@ $nombre = $alumno['nombre']; // Obtiene el nombre del alumno desde la fila recup
 $apellido = $alumno['apellido']; // Obtiene la apellido del alumno desde la fila recuperada.
 $fecha_nacimiento = $alumno['fecha_nacimiento']; // Obtiene el fecha_nacimiento del alumno desde la fila recuperada.
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Actualizar Usuario</title>
-</head>
-<body>
-    <h2>Actualizar Usuario</h2>
-    <form method="post" action="update.php">
-        dni: <input type="text" name="dni"><br>
-        nombre: <input type="text" name="nombre"><br>
-        apellido: <input type="text" name="apellido"><br>
-        fecha_nacimiento: <input type="text" name="fecha_nacimiento"><br>
-        <input type="submit" value="Actualizar">
-    </form>
-</body>
-</html>
