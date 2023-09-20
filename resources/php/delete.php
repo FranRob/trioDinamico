@@ -1,33 +1,28 @@
 <?php
 require_once "conexion.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['dni'])) {
     $dni = $_POST['dni'];
 
-    // Eliminar alumno
-    $query = "DELETE FROM alumno WHERE dni = :dni";
-    $stmt = $conection->prepare($query);
-    $stmt->bindParam(":dni", $dni);
-    
-    if ($stmt->execute()) {
-        echo "Alumno eliminado con éxito.";
+    // Verificar si el DNI existe en la tabla "Alumno"
+    $query_check = "SELECT dni FROM alumno WHERE dni = :dni";
+    $stmt_check = $conection->prepare($query_check);
+    $stmt_check->bindParam(":dni", $dni);
+    $stmt_check->execute();
+
+    if ($stmt_check->rowCount() > 0) {
+        // El DNI existe en la base de datos, proceder a eliminar
+        $query_delete = "DELETE FROM alumno WHERE dni = :dni";
+        $stmt_delete = $conection->prepare($query_delete);
+        $stmt_delete->bindParam(":dni", $dni);
+
+        if ($stmt_delete->execute()) {
+            echo "Alumno eliminado con éxito.";
+        } else {
+            echo "Error al eliminar alumno: " . $stmt_delete->errorInfo()[2];
+        }
     } else {
-        echo "Error al eliminar alumno: " . $stmt->errorInfo()[2];
+        echo "El DNI no existe en la base de datos.";
     }
 }
-
-$dni = $_GET["dni"];
-$query = "SELECT * FROM alumno WHERE dni = :dni";
-$stmt = $conection->prepare($query);
-$stmt->bindParam(":dni", $dni);
-$stmt->execute();
-$alumno = $stmt->fetch();
-
-$nombre = $alumno['nombre'];
-$apellido = $alumno['apellido'];
-$fecha_nacimiento = $alumno['fecha_nacimiento'];
-
-
-
 ?>
-
