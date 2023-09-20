@@ -1,7 +1,7 @@
 <?php
 require_once "conexion.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['dni'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dni = $_POST['dni'];
 
     // Verificar si el DNI existe en la tabla "Alumno"
