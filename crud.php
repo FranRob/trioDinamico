@@ -77,7 +77,8 @@
     <fieldset>
       <legend>Ingrese el dni del alumno a eliminar: </legend>
       <label for="dni">DNI: </label>
-        <input type="number">
+        <input type="number" name="dni">
+      <br>
       <br>
       <br>
       <button class="btn btn-outline-primary" onclick="">Eliminar</button>
