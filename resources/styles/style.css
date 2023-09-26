@@ -29,24 +29,19 @@ nav a {
     font-weight: bold; /* Texto en negrita */
 }
 
-/* Estilos CSS para el contenido principal */
-main {
-    text-align: center; /* Alineación central del contenido principal */
-    margin-top: 50px; /* Espaciado superior para centrar */
+.buscar-contenedor{
+    display: flex;
+    width: 300px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
-main div {
-    display: block; /* Cambiado a bloque para que se muestre uno debajo del otro */
-    margin-bottom: 20px; /* Espaciado inferior entre elementos */
-}
 
-main label {
-    display: block; /* Muestra las etiquetas en bloques para que se alineen uno debajo del otro */
-    margin-bottom: 10px; /* Espaciado inferior entre etiquetas */
-}
 
-/* Estilo adicional para el botón */
-main button {
-    display: block; /* Mostrar el botón como bloque para que esté debajo del último input */
-    margin: 0 auto; /* Centrar horizontalmente el botón */
-}
+
+
+
+
+
+

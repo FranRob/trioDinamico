@@ -16,7 +16,7 @@
     <div class="container">
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#insertar">insertar</a>
@@ -49,6 +49,7 @@
       <label for="dni">DNI: </label>
         <input type="number" name="dni">
       <br>
+      <br>
       <button class="btn btn-outline-primary" onclick="">Enviar</button>
     </fieldset>
   </form>
@@ -61,6 +62,7 @@
       <legend>Ingrese el dni del alumno que desea modificar: </legend>
       <label for="dni">DNI: </label>
         <input type="number">
+      <br>
       <br>
       <button class="btn btn-outline-primary" onclick="">Buscar Alumno</button>
     </fieldset>
@@ -77,6 +79,7 @@
       <label for="dni">DNI: </label>
         <input type="number">
       <br>
+      <br>
       <button class="btn btn-outline-primary" onclick="">Eliminar</button>
     </fieldset>
   </form>
@@ -92,6 +95,7 @@
       <label for="apellido">Apellido: </label>
         <input type="text">
       <br>
+      <br>
       <button class="btn btn-outline-primary" onclick="">Buscar</button>
     </fieldset>
   </form>
@@ -103,5 +107,5 @@
 </body>
 </html>
 
-<script src="./resources/bootstrap-5.3.2/js/bootstrap.min.js"></script>
+<script src="./resources/bootstrap-5.3.2/js/bootstrap.bundle.min.js"></script>
 <script src="./resources/Js/funciones.js"></script>
