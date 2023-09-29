@@ -25,6 +25,7 @@ $respuestaAlumno = $consulta->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Profesores</a></li>
                 <li><a href="#">Alumnos</a></li>
+                <li><a href="#">Asistencias</a></li>
             </ul>
         </nav>
     </header>
