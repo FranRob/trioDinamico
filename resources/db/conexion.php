@@ -1,23 +1,23 @@
 <?php
+class Database {
+    private $host = "localhost";
+    private $db_name = "sistema_asistencias";
+    private $user = "root";
+    private $pass = "";
+    public $conn;
 
-class Database{
-
-    private $host = "localHost";
-    private $dbname = "sistema_asistencias";
-    private $userName = "root";
-    private $password = "";
-
-    public function conexion(){
-        try{
-            $conection = new PDO ("mysql:host=" . $this->host . ";dbname=" . $this->dbname, $this->userName, $this->password);
-            return $conection;
-        }catch(PDOException $e){
-            return $e ->getMessage();
-            exit;
+    public function getConexion() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->user, $this->pass);
+        } catch (PDOException $exception) {
+            echo "Error de conexión: " . $exception->getMessage();
         }
-
+        return $this->conn;
     }
 
+    public function cerrarConexion(){
+        $this->conn = null;
+    }
 }
-
 ?>

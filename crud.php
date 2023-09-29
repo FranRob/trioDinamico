@@ -37,22 +37,22 @@
 
 <main class="container-fluid">
 <section class="container" id="insertar">
-  <form action="./resources/php/insert.php" method="POST">
-    <fieldset>
-      <legend>Ingresar los datos del alumno: </legend>
-      <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre">
-      <label for="apellido">Apellido: </label>
-        <input type="text" name="apellido">
-      <label for="fecha_nacimiento">Fecha de nacimiento: </label>
-        <input type="date" name="fecha_nacimiento">
-      <label for="dni">DNI: </label>
-        <input type="number" name="dni">
-      <br>
-      <br>
-      <button class="btn btn-outline-primary" onclick="">Enviar</button>
-    </fieldset>
-  </form>
+    <form action="./insert.php" method="POST">
+      <fieldset>
+        <legend>Ingresar los datos del alumno: </legend>
+        <label for="nombre">Nombre: </label>
+          <input type="text" name="nombre">
+        <label for="apellido">Apellido: </label>
+          <input type="text" name="apellido">
+        <label for="fecha_nacimiento">Fecha de nacimiento: </label>
+          <input type="date" name="fecha_nacimiento">
+        <label for="dni">DNI: </label>
+          <input type="number" name="dni">
+        <br>
+        <br>
+        <button class="btn btn-outline-primary" onclick="">Enviar</button>
+      </fieldset>
+    </form>
 </section>
 
 

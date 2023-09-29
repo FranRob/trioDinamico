@@ -1,12 +1,15 @@
 <?php
-
 require_once './resources/db/conexion.php';
+require_once './resources/class/Alumno.php';
+require_once './resources/class/Profesor.php';
+require_once './resources/class/Asistencia.php';
 
 $db = new Database();
-$con = $db->conexion();
-$consulta = $con->query("SELECT dni,nombre,apellido,fecha_nacimiento FROM alumno ORDER BY nombre ASC");
-$consulta->execute();
-$respuestaAlumno = $consulta->fetchAll(PDO::FETCH_ASSOC);
+$conn = $db->getConexion();
+$alumno = new Alumno($conn);
+$profesor = new Profesor($conn);
+$asistencia = new Asistencia($conn);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,41 +21,59 @@ $respuestaAlumno = $consulta->fetchAll(PDO::FETCH_ASSOC);
     <title>Sistema asistencia</title>
 </head>
 <body>
-    <header class="container-fluid">
-        <h1>Sistema asistencia</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Profesores</a></li>
-                <li><a href="#">Alumnos</a></li>
-            </ul>
-        </nav>
-    </header>
 
+    <?php include './resources/includes/header.php'; ?>
   
     <main class="container">
-        <section class="container">
-
-            <div>
-                <a href="crud.php">Ir a crud</a>
-            </div>
-        </section>
-
-        <section class="container">
+        <section class="container mt-5">
             <div class="row"> 
                 <div class="col">
-                    <h4>Alumnos</h4>
-                    <a href="crud.php" class="btn btn-primary float-right">Nuevo alumno</a>
-                    <div class="d-flex justify-content-center">
-                        <div class="d-flex">
-                            <label for="dni">DNI:</label>
-                            <input type="text" id="dni">
-                        </div>
-                        <div>
-                            <button onclick="">Buscar</button>
-                        </div>
-                    </div>
+                        <div class="d-flex me-4 justify-content-evenly">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Nuevo Alumno
+                                </button>
 
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar alumno</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form action="./resources/includes/insert.php" method="POST">
+                                            <fieldset>
+                                                <label for="dni" class="form-label">DNI: </label>
+                                                  <input type="number" name="dni">
+                                                  <br>
+                                                <label for="nombre" class="form-label">Nombre: </label>
+                                                  <input type="text" name="nombre">
+                                                  <br>
+                                                <label for="apellido" class="form-label">Apellido: </label>
+                                                  <input type="text" name="apellido">
+                                                  <br>
+                                                <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento: </label>
+                                                  <input type="date" name="fecha_nacimiento">
+                                                  <br>
+                                            </fieldset>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="submit" name="agregar" class="btn btn-primary">Agregar</button>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            <div class="d-flex">
+                              <label for="dni" class="col-form-label">DNI:</label>
+                              <input type="text" id="dni">
+                              <button class="btn btn-outline-warning ms-2" onclick="">Buscar</button>
+                            </div>
+                        </div>
                 </div>
             </div>
 
@@ -71,7 +92,8 @@ $respuestaAlumno = $consulta->fetchAll(PDO::FETCH_ASSOC);
                         </thead>
                         <tbody>
                             <?php
-                                foreach($respuestaAlumno as $row){
+                                $respuestaMostrarAlumnos=$alumno->mostrarTodos();
+                                foreach($respuestaMostrarAlumnos as $row){
                             ?>
                             <tr>
                                 <td> <?php echo $row['dni'];?></td>
