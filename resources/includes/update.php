@@ -1,5 +1,5 @@
 <?php
-require_once('conexion.php'); // Incluye el archivo de conexión a la base de datos.
+require_once ('./resources/db/conexion.php'); // Incluye el archivo de conexión a la base de datos.
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica si se ha enviado una solicitud POST// Post envia datos desde el formulario.
     $dni = $_POST['dni']; // Obtiene el valor del campo 'dni' desde el formulario POST.

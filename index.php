@@ -18,17 +18,8 @@ $respuestaAlumno = $consulta->fetchAll(PDO::FETCH_ASSOC);
     <title>Sistema asistencia</title>
 </head>
 <body>
-    <header class="container-fluid">
-        <h1>Sistema asistencia</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Profesores</a></li>
-                <li><a href="#">Alumnos</a></li>
-            </ul>
-        </nav>
-    </header>
 
+    <?php include './resources/includes/header.php'; ?>
   
     <main class="container">
         <section class="container">
@@ -44,7 +35,7 @@ $respuestaAlumno = $consulta->fetchAll(PDO::FETCH_ASSOC);
                     <h4>Alumnos</h4>
                     <a href="crud.php" class="btn btn-primary float-right">Nuevo alumno</a>
                     <div class="d-flex justify-content-center">
-                        <div class="d-flex">
+                        <div class="d-flex me-4">
                             <label for="dni">DNI:</label>
                             <input type="text" id="dni">
                         </div>
