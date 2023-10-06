@@ -80,6 +80,20 @@
             // Devolver un arreglo asociativo con los resultados
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function buscarPorDni($dni) {
+            $sql = "SELECT * FROM alumno WHERE dni = ?";
+            $stmt = $this->con->prepare($sql);
+            $stmt->bindParam(1, $dni);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if ($result !== false) {
+                return $result;
+            } else {
+                return false;
+            }
+        }
         
         
 

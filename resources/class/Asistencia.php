@@ -1,10 +1,8 @@
 <?php 
     class Asistencia{
         
-        public $id_asistencia;
         public $dni_alumno;
         public $fecha;
-        public $estado_asistencia;
         private $con;
 
 
@@ -13,17 +11,15 @@
             $this->con = $db;
         }
 
-        public function agregar($id_asistencia, $dni_alumno, $fecha, $estado_asistencia) {
+        public function agregar($dni_alumno, $fecha) {
             //Preparar consulta
-            $query = "INSERT INTO asistencias(id_asistencia, dni_alumno, fecha, estado_asistencia) VALUES (:id_asistencia, :dni_alumno, :fecha, :estado_asistencia)";
+            $query = "INSERT INTO asistencias(dni_alumno, fecha) VALUES (:dni_alumno, :fecha)";
             $stmt = $this->con->prepare($query);
             //bindear parametros
-            $stmt-> bindParam(':id_asistencia', $id_asistencia);
             $stmt-> bindParam(':dni_alumno', $dni_alumno);
             $stmt-> bindParam(':fecha', $fecha);
-            $stmt-> bindParam(':estado_asistencia', $estado_asistencia);
             //ejecutar consulta
-            $stmt->execute([$id_asistencia, $dni_alumno, $fecha, $estado_asistencia]);
+            $stmt->execute();
 
 
             if ($stmt->rowCount() > 0) {
@@ -33,41 +29,25 @@
             }
         }
 
-
-        public function eliminar($id_asistencia) {
-            //preparar sql
-            $query = "DELETE FROM asistencias WHERE id_asistencia = :id_asistencia";
-            $stmt = $this->con->prepare($query);
-            //Bindear parametros
-            $stmt->bindParam(':id_asistencia',$id_asistencia);
-            //Ejercutar consulta
-            $stmt->execute([$id_asistencia]);
-            
-            // Verificar si la eliminación fue exitosa
-            if ($stmt->rowCount() > 0) {
-                return true; // Éxito
-            } else {
-                return false; // Fallo
-            }
-        }
-
-
-        public function modificar($id_asistencia, $dni_alumno, $fecha, $estado_asistencia) {
-            $query = "UPDATE asistencias SET dni_alumno = :dni_alumno, fecha = :fecha, estado_asistencia = :estado_asistencia WHERE id_asistencia = :id_asistencia";
-            $stmt = $this->con->prepare($query);
-
-            $stmt->bindParam(':dni_alumno',$dni_alumno);
-            $stmt->bindParam(':fecha',$fecha);
-            $stmt->bindParam(':estado_asistencia',$estado_asistencia);
-            $stmt->bindParam(':id_asistencia',$id_asistencia);
-
-            $stmt->execute([$dni_alumno, $fecha, $estado_asistencia, $id_asistencia]);
-            
-            // Verificar si la actualización fue exitosa
-            if ($stmt->rowCount() > 0) {
-                return true; // Éxito
-            } else {
-                return false; // Fallo
+        public function obtenerPorcentaje() {
+            try {
+                // Realiza la consulta SQL para obtener el porcentaje de asistencias
+                $query = "SELECT AVG(asistencia) * 100 AS porcentaje FROM asistencias";
+                $stmt = $this->con->prepare($query);
+                $stmt->execute();
+    
+                // Obtiene el resultado de la consulta
+                $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+                if ($resultado) {
+                    return $resultado['porcentaje'];
+                } else {
+                    return 0; // Valor predeterminado si no se encuentra ningún resultado
+                }
+            } catch (PDOException $e) {
+                // Manejo de errores en caso de que la consulta falle
+                echo "Error: " . $e->getMessage();
+                return 0; // Valor predeterminado en caso de error
             }
         }
     }
