@@ -15,7 +15,6 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
     if ($valor_checkbox == 'on') {
         // Extrae el número de identificación del alumno del nombre de la checkbox
         $dni_alumno = str_replace('asistencia_', '', $nombre_checkbox);
-    
 
         // Prepara una consulta SQL para insertar la asistencia
         $stmt = $conn->prepare("INSERT INTO asistencias (dni_alumno, fecha) VALUES (:dni_alumno, :fecha)");
@@ -26,14 +25,6 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
         $stmt->execute();
     }
 }
-
-
-    echo 'Exitoso' . '<br>';
-    echo '<a href="../../index.php"><button>Volver</button></a>';
-
-
-
-
-
-// Redirige o muestra un mensaje de éxito
+echo 'Exitoso'.'<br>';
+echo '<a href="../../index.php"><button>Volver</button></a>';
 ?>
