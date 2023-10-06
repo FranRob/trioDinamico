@@ -7,7 +7,7 @@ $conn = $db->getConexion();
 $alumno = new Alumno($conn);
 
 $resultados = array(); // Inicializa un arreglo para almacenar los resultados
-
+$mostrarResultados = false;
 // Verifica si se ha enviado el formulario de búsqueda
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar'])) {
     $dni = $_POST['dni'];
@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar'])) {
 
     if ($resultado) {
         $resultados[] = $resultado; // Agrega el resultado al arreglo
+        $mostrarResultados = True;
     }
 }
 ?>
