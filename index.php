@@ -86,8 +86,8 @@ $asistencia = new Asistencia($conn);
                <thead>
                  <tr>
                    <th class="text-center">DNI</th>
-                   <th class="text-center">Nombre</th>
                    <th class="text-center">Apellido</th>
+                   <th class="text-center">Nombre</th>
                    <th class="text-center">Fecha de nacimiento</th>
                    <th class="text-center">% Asistencias</th>
                  </tr>
@@ -96,8 +96,8 @@ $asistencia = new Asistencia($conn);
                    <?php foreach ($resultados as $row): ?>
                      <tr>
                        <td class="text-center"><?php echo $row['dni']; ?></td>
-                       <td class="text-center"><?php echo $row['nombre']; ?></td>
                        <td class="text-center"><?php echo $row['apellido']; ?></td>
+                       <td class="text-center"><?php echo $row['nombre']; ?></td>
                        <td class="text-center"><?php echo $row['fecha_nacimiento']; ?></td>
                        <td class="text-center">% Asistencia</td>
                      </tr>
@@ -129,11 +129,11 @@ $asistencia = new Asistencia($conn);
                           <label for="dni" class="form-label">DNI: </label>
                             <input type="number" name="dni">
                             <br>
-                          <label for="nombre" class="form-label">Nombre: </label>
-                            <input type="text" name="nombre">
-                            <br>
                           <label for="apellido" class="form-label">Apellido: </label>
                             <input type="text" name="apellido">
+                            <br>
+                          <label for="nombre" class="form-label">Nombre: </label>
+                            <input type="text" name="nombre">
                             <br>
                           <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento: </label>
                             <input type="date" name="fecha_nacimiento">
@@ -157,8 +157,8 @@ $asistencia = new Asistencia($conn);
             <thead>
               <tr>
                 <th class="text-center">Dni</th>
-                <th class="text-center">Nombre</th>
                 <th class="text-center">Apellido</th>
+                <th class="text-center">Nombre</th>
                 <th class="text-center">Fecha de nacimiento</th>
                 <th class="text-center">Opciones</th>
                 <th class="text-center">% Asistencias</th>
@@ -171,8 +171,8 @@ $asistencia = new Asistencia($conn);
               ?>
               <tr>
                 <td class="text-center"> <?php echo $row['dni'];?></td>
-                <td class="text-center"> <?php echo $row['nombre'];?></td>
                 <td class="text-center"> <?php echo $row['apellido'];?></td>
+                <td class="text-center"> <?php echo $row['nombre'];?></td>
                 <td class="text-center"> <?php echo $row['fecha_nacimiento'];?></td>
                 <td> 
                   <div class="dropdown">
@@ -197,10 +197,10 @@ $asistencia = new Asistencia($conn);
                             <fieldset>
                               <label for="dni_modificar">DNI del Alumno a Modificar:</label>
                               <input type="text" name="dni" id="dni_modificar" required><br>
-                              <label for="nombre">Nuevo Nombre:</label>
-                              <input type="text" name="nombre" id="nombre"><br>
                               <label for="apellido">Nuevo Apellido:</label>
                               <input type="text" name="apellido" id="apellido"><br>
+                              <label for="nombre">Nuevo Nombre:</label>
+                              <input type="text" name="nombre" id="nombre"><br>
                               <label for="fecha_nacimiento">Fecha de nacimiento:</label>
                               <input type="date" name="fecha_nacimiento" id="fecha_nacimiento"><br>
                             </fieldset>
@@ -250,8 +250,8 @@ $asistencia = new Asistencia($conn);
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                              <th class="text-center">Apellido</th>
                                 <th class="text-center">Nombre</th>
-                                <th class="text-center">Apellido</th>
                                 <th class="text-center">Presente</th>
                                 <th class="text-center">% Asistencias</th>
                             </tr>
@@ -264,8 +264,8 @@ $asistencia = new Asistencia($conn);
                                 $nombre_checkbox = 'asistencia_' . $row['dni'];
                             ?>
                                 <tr>
+                                  <td class="text-center"> <?php echo $row['apellido']; ?></td>
                                     <td class="text-center"> <?php echo $row['nombre']; ?></td>
-                                    <td class="text-center"> <?php echo $row['apellido']; ?></td>
                                     <td class="text-center"><input type="checkbox" name="<?php echo $nombre_checkbox; ?>"></td>
                                     <td class="text-center">% Asistencias</td>
                                 </tr>

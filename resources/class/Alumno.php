@@ -74,7 +74,7 @@
         }
 
         public function mostrarTodos() {
-            $query = "SELECT dni,nombre,apellido,fecha_nacimiento FROM alumno ORDER BY nombre ASC";
+            $query = "SELECT dni,nombre,apellido,fecha_nacimiento FROM alumno ORDER BY apellido ASC";
             $stmt = $this->con->prepare($query);
             $stmt->execute();
             // Devolver un arreglo asociativo con los resultados
