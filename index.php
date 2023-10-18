@@ -277,6 +277,71 @@ $asistencia = new Asistencia($conn);
             </div>
         </div>
       </section>
+
+      <section class="container mt-5 seccion" id="configuracion">
+
+			<div class="row d-flex align-items-center alert alert-info text-center mt-5">
+    			<p class="my-auto">En los siguientes inputs vas a poder configurar aspectos importantes para el funcionamiento de la app</p>
+			</div>
+			<div class="row my-4">
+				<div class="col-12 mt-5 input-group mb-3">
+					<form class="d-flex w-50" action="" method="POST">
+						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Dias totales de clases</label>
+						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+					</form>
+				</div>
+			</div>
+			<div class="row my-4">
+				<div class="col-12 mt-5 input-group mb-3">
+					<form class="d-flex w-50" action="" method="POST">
+						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 2</label>
+						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+					</form>
+				</div>
+			</div>
+			<div class="row my-4">
+				<div class="col-12 mt-5 input-group mb-3">
+					<form class="d-flex w-50" action="" method="POST">
+						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 3</label>
+						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+					</form>
+				</div>
+			</div>
+			<div class="row my-4">
+				<div class="col-12 mt-5 input-group mb-3">
+					<form class="d-flex w-50" action="" method="POST">
+						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 4</label>
+						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+					</form>
+				</div>
+			</div>
+			<div class="row my-4">
+				<div class="col-12 mt-5 input-group mb-3">
+					<form class="d-flex w-50" action="" method="POST">
+						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 5</label>
+						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+					</form>
+				</div>
+			</div>
+			<div class="row my-4">
+				<div class="col-12 mt-5 input-group mb-3">
+					<form class="d-flex w-50" action="" method="POST">
+						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 6</label>
+						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+					</form>
+				</div>
+			</div>
+
+
+      </section>
+
+
   </main>
     
 </body>
