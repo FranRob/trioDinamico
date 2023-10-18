@@ -95,7 +95,27 @@
             }
         }
         
-        
+        public function obtenerPorcentaje() {
+            try {
+                // Realiza la consulta SQL para obtener el porcentaje de asistencias
+                $query = "SELECT AVG(asistencia) * 100 AS porcentaje FROM asistencias";
+                $stmt = $this->con->prepare($query);
+                $stmt->execute();
+    
+                // Obtiene el resultado de la consulta
+                $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+                if ($resultado) {
+                    return $resultado['porcentaje'];
+                } else {
+                    return 0; // Valor predeterminado si no se encuentra ningún resultado
+                }
+            } catch (PDOException $e) {
+                // Manejo de errores en caso de que la consulta falle
+                echo "Error: " . $e->getMessage();
+                return 0; // Valor predeterminado en caso de error
+            }
+        }
 
 
     }
