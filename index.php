@@ -113,10 +113,10 @@ $asistencia = new Asistencia($conn);
         <div class="col">
           <div class="d-flex me-4 justify-content-evenly">
             <div class="d-flex">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-agregar-">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-agregar">
                 Nuevo Alumno
               </button>
-                <div class="modal fade" id="modal-agregar-" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-agregar-Label" aria-hidden="true">
+                <div class="modal fade" id="modal-agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-agregar-Label" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
