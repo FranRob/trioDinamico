@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar'])) {
     if ($resultado) {
         $resultados[] = $resultado; // Agrega el resultado al arreglo
         $mostrarResultados = True;
-        }
-        else {
-            $error = "No se encontró ningún alumno con el DNI proporcionado.";
-        }
+        
+    }else{
+        $error = "No se encontró ningún alumno con el DNI proporcionado.";
     }
+}
 ?>

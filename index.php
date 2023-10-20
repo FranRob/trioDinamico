@@ -20,6 +20,7 @@ $asistencia = new Asistencia($conn);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./resources/bootstrap-5.3.2/css/bootstrap.min.css" >
   <link rel="stylesheet" href="./resources/styles/style.css">
+
   <title>TD Asistencias para profes</title>
 </head>
 <body>
@@ -76,43 +77,53 @@ $asistencia = new Asistencia($conn);
                 <button type="submit" class="btn btn-outline-warning ms-2" name="buscar">Buscar</button>
             </form>
           </div>
-          <?php
-              if (isset($error)) {
-               echo '<div class="alert alert-danger">' . $error . '</div>';
-                }
-                ?>
         </div>
       </div>
     </div>
-
+    <?php
+      if (isset($error)) {
+          echo "<br>";
+          echo '<div id="mensajeError" class="alert alert-danger text-center">' . $error . '</div>';
+          echo '<script>
+              setTimeout(function() {
+                  var mensajeError = document.getElementById("mensajeError");
+                  mensajeError.style.display = "none";
+              }, 3000);
+          </script>';
+      }
+    ?>
       <?php if (!empty($resultados)): ?>
-        <div class="row py-3">
-           <div class="col">
-             <table class="table table-bordered">
-               <thead>
-                 <tr>
-                   <th class="text-center">DNI</th>
-                   <th class="text-center">Apellido</th>
-                   <th class="text-center">Nombre</th>
-                   <th class="text-center">Fecha de nacimiento</th>
-                   <th class="text-center">% Asistencias</th>
-                 </tr>
-               </thead>
-                 <tbody>
-                   <?php foreach ($resultados as $row): ?>
-                     <tr>
-                       <td class="text-center"><?php echo $row['dni']; ?></td>
-                       <td class="text-center"><?php echo $row['apellido']; ?></td>
-                       <td class="text-center"><?php echo $row['nombre']; ?></td>
-                       <td class="text-center"><?php echo $row['fecha_nacimiento']; ?></td>
-                       <td class="text-center">% Asistencia</td>
-                     </tr>
-                   <?php endforeach; ?>
-                 </tbody>
-               </table>
-           </div>
+    <div class="row py-3">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">DNI</th>
+                        <th class="text-center">Apellido</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Fecha de nacimiento</th>
+                        <th class="text-center">% Asistencias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($resultados as $row): ?>
+                        <?php
+                        $alumno->dni = $row['dni'];
+                        $porcentaje_asistencia = $alumno->calcularPorcentajeAsistencia();
+                        ?>
+                        <tr>
+                            <td class="text-center"><?php echo $row['dni']; ?></td>
+                            <td class="text-center"><?php echo $row['apellido']; ?></td>
+                            <td class="text-center"><?php echo $row['nombre']; ?></td>
+                            <td class="text-center"><?php echo $row['fecha_nacimiento']; ?></td>
+                            <td class="text-center">%<?php echo $porcentaje_asistencia; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
-      <?php endif; ?>
+    </div>
+<?php endif; ?>
     </section>
     <section class="container mt-5 seccion" id="alumnos">
       <div class="row"> 
@@ -175,12 +186,16 @@ $asistencia = new Asistencia($conn);
                 $respuestaMostrarAlumnos=$alumno->mostrarTodos();
                 foreach($respuestaMostrarAlumnos as $row){
               ?>
+              <?php
+                $alumno->dni = $row['dni'];
+                $porcentaje_asistencia = $alumno->calcularPorcentajeAsistencia();
+              ?>
               <tr>
                 <td class="text-center"> <?php echo $row['dni'];?></td>
                 <td class="text-center"> <?php echo $row['apellido'];?></td>
                 <td class="text-center"> <?php echo $row['nombre'];?></td>
                 <td class="text-center"> <?php echo $row['fecha_nacimiento'];?></td>
-                <td> 
+                <td class="text-center"> 
                   <div class="dropdown">
                     <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       CRUD
@@ -241,7 +256,7 @@ $asistencia = new Asistencia($conn);
                       </div>
                     </div>
                   </div>
-                  <td class="text-center">% Asistencia</td>
+                  <td class="text-center">%<?php echo $porcentaje_asistencia; ?></td>
                 </tr>
               <?php } ?>
               </tbody>
@@ -269,11 +284,15 @@ $asistencia = new Asistencia($conn);
                                 // Genera un nombre único para la checkbox basado en el ID del alumno
                                 $nombre_checkbox = 'asistencia_' . $row['dni'];
                             ?>
+                            <?php
+                              $alumno->dni = $row['dni'];
+                              $porcentaje_asistencia = $alumno->calcularPorcentajeAsistencia();
+                            ?>
                                 <tr>
                                   <td class="text-center"> <?php echo $row['apellido']; ?></td>
                                     <td class="text-center"> <?php echo $row['nombre']; ?></td>
                                     <td class="text-center"><input type="checkbox" name="<?php echo $nombre_checkbox; ?>"></td>
-                                    <td class="text-center">% Asistencias</td>
+                                    <td class="text-center">%<?php echo $porcentaje_asistencia; ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -294,7 +313,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Dias totales de clases</label>
 						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
 					</form>
 				</div>
 			</div>
@@ -303,7 +322,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 2</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
 					</form>
 				</div>
 			</div>
@@ -312,7 +331,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 3</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
 					</form>
 				</div>
 			</div>
@@ -321,7 +340,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 4</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
 					</form>
 				</div>
 			</div>
@@ -330,7 +349,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 5</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
 					</form>
 				</div>
 			</div>
@@ -339,7 +358,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 6</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
 					</form>
 				</div>
 			</div>

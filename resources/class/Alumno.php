@@ -95,26 +95,28 @@
             }
         }
         
-        public function obtenerPorcentaje() {
-            try {
-                // Realiza la consulta SQL para obtener el porcentaje de asistencias
-                $query = "SELECT AVG(asistencia) * 100 AS porcentaje FROM asistencias";
-                $stmt = $this->con->prepare($query);
-                $stmt->execute();
-    
-                // Obtiene el resultado de la consulta
-                $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-                if ($resultado) {
-                    return $resultado['porcentaje'];
-                } else {
-                    return 0; // Valor predeterminado si no se encuentra ningún resultado
-                }
-            } catch (PDOException $e) {
-                // Manejo de errores en caso de que la consulta falle
-                echo "Error: " . $e->getMessage();
-                return 0; // Valor predeterminado en caso de error
+        public function calcularPorcentajeAsistencia() {
+            $sql_total_dias = "SELECT COUNT(DISTINCT fecha) AS total_dias FROM asistencias";
+            $result_total_dias = $this->con->query($sql_total_dias);
+            $row_total_dias = $result_total_dias->fetch(PDO::FETCH_ASSOC); // Usa FETCH_ASSOC para obtener un arreglo asociativo
+        
+            $total_dias = $row_total_dias['total_dias'];
+        
+            $sql_asistencias_alumno = "SELECT COUNT(DISTINCT fecha) AS asistencias FROM asistencias WHERE dni_alumno = :dni";
+            $stmt = $this->con->prepare($sql_asistencias_alumno);
+            $stmt->bindParam(':dni', $this->dni);
+            $stmt->execute();
+            $row_asistencias_alumno = $stmt->fetch(PDO::FETCH_ASSOC); // Usa FETCH_ASSOC para obtener un arreglo asociativo
+        
+            $asistencias = $row_asistencias_alumno['asistencias'];
+        
+            if ($total_dias > 0) {
+                $porcentaje = ($asistencias / $total_dias) * 100;
+            } else {
+                $porcentaje = 0;
             }
+        
+            return $porcentaje;
         }
 
 
