@@ -3,10 +3,9 @@
         <nav>
             <ul>
                 <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-                <li><a href="#" onclick="mostrarSeccion('profesores')">Profesores</a></li>
                 <li><a href="#" onclick="mostrarSeccion('alumnos')">Alumnos</a></li>
                 <li><a href="#" onclick="mostrarSeccion('asistencias')">Asistencias</a></li>
-                <li><a href="#">Configuracion</a></li> //esto debe tener diasclase y un input
+                <li><a href="#" onclick="mostrarSeccion('configuracion')">Configuracion</a></li>
             </ul>
         </nav>
 </header>

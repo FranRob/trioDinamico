@@ -23,14 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'El alumno con DNI ' . $dni . ' ya existe.'. '<br>';
         echo '<a href="../../index.php"><button>Volver</button></a>';
     } else {
-
-    if ($alumno->agregar($dni, $nombre, $apellido,$fecha_nacimiento)){
-        echo 'Exitoso' . '<br>';
-        echo '<a href="../../index.php"><button>Volver</button></a>';
-    }else{
-        echo 'Error' . '<br>';
-        echo '<a href="../../index.php"><button>Volver</button></a>';
-    }
+        if ($alumno->agregar($dni, $nombre, $apellido,$fecha_nacimiento)){
+            echo 'Exitoso' . '<br>';
+            echo '<a href="../../index.php"><button>Volver</button></a>';
+        } else {
+            echo 'Error' . '<br>';
+            echo '<a href="../../index.php"><button>Volver</button></a>';
+        }
     }
 }
 ?>
