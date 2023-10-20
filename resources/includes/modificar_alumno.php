@@ -21,9 +21,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo '<a href="../../index.php"><button>Volver</button></a>';
     }
 
-
-
-
-
 }
 ?>

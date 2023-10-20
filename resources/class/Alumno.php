@@ -91,7 +91,7 @@
             if ($result !== false) {
                 return $result;
             } else {
-                return false;
+                return null;
             }
         }
         

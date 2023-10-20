@@ -68,6 +68,7 @@ $asistencia = new Asistencia($conn);
                 </div>
               </div>
             </div>
+            
           <div class="d-flex">
             <form action="./index.php" method="POST">
               <label for="dni" class="col-form-label">DNI:</label>
@@ -75,6 +76,11 @@ $asistencia = new Asistencia($conn);
                 <button type="submit" class="btn btn-outline-warning ms-2" name="buscar">Buscar</button>
             </form>
           </div>
+          <?php
+              if (isset($error)) {
+               echo '<div class="alert alert-danger">' . $error . '</div>';
+                }
+                ?>
         </div>
       </div>
     </div>
