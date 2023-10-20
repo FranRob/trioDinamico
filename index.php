@@ -186,10 +186,6 @@ $asistencia = new Asistencia($conn);
                 $respuestaMostrarAlumnos=$alumno->mostrarTodos();
                 foreach($respuestaMostrarAlumnos as $row){
               ?>
-              <?php
-                $alumno->dni = $row['dni'];
-                $porcentaje_asistencia = $alumno->calcularPorcentajeAsistencia();
-              ?>
               <tr>
                 <td class="text-center"> <?php echo $row['dni'];?></td>
                 <td class="text-center"> <?php echo $row['apellido'];?></td>
@@ -201,29 +197,29 @@ $asistencia = new Asistencia($conn);
                       CRUD
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-editar-">Editar</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-editar-<?php echo $row['dni']; ?>">Editar</a></li>
                       <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-eliminar-">Eliminar</a></li>
                     </ul>
                   </div>         
                 </td>
-                  <div class="modal fade" id="modal-editar-" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-editar-Label" aria-hidden="true">
+                <div class="modal fade" id="modal-editar-<?php echo $row['dni']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-editar-Label" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="modal-editar-Label">Editar alumno</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5" id="modal-editar-Label">Editar alumno</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                           <form action="./resources/includes/modificar_alumno.php" method="POST">
                             <fieldset>
-                              <label for="dni_modificar">DNI del Alumno a Modificar:</label>
-                              <input type="text" name="dni" id="dni_modificar" required><br>
-                              <label for="apellido">Nuevo Apellido:</label>
-                              <input type="text" name="apellido" id="apellido"><br>
-                              <label for="nombre">Nuevo Nombre:</label>
-                              <input type="text" name="nombre" id="nombre"><br>
-                              <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                              <input type="date" name="fecha_nacimiento" id="fecha_nacimiento"><br>
+                            <label for="dni_modificar-<?php echo $row['dni']; ?>">DNI del Alumno a Modificar:</label>
+                                <input type="text" name="dni" id="dni_modificar-<?php echo $row['dni']; ?>" required value="<?php echo $row['dni']; ?>"><br>
+                                <label for="apellido-<?php echo $row['dni']; ?>">Nuevo Apellido:</label>
+                                <input type="text" name="apellido" id="apellido-<?php echo $row['dni']; ?>" value="<?php echo $row['apellido']; ?>"><br>
+                                <label for="nombre-<?php echo $row['dni']; ?>">Nuevo Nombre:</label>
+                                <input type="text" name="nombre" id="nombre-<?php echo $row['dni']; ?>" value="<?php echo $row['nombre']; ?>"><br>
+                                <label for="fecha_nacimiento-<?php echo $row['dni']; ?>">Fecha de nacimiento:</label>
+                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento-<?php echo $row['dni']; ?>" value="<?php echo $row['fecha_nacimiento']; ?>"><br>
                             </fieldset>
                         </div>
                         <div class="modal-footer">
@@ -256,7 +252,7 @@ $asistencia = new Asistencia($conn);
                       </div>
                     </div>
                   </div>
-                  <td class="text-center">%<?php echo $porcentaje_asistencia; ?></td>
+                  <td class="text-center">% Asistencia</td>
                 </tr>
               <?php } ?>
               </tbody>
