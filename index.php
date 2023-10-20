@@ -68,13 +68,19 @@ $asistencia = new Asistencia($conn);
                 </div>
               </div>
             </div>
+            
           <div class="d-flex">
             <form action="./index.php" method="POST">
               <label for="dni" class="col-form-label">DNI:</label>
-                <input type="search" id="dni" name="dni">
+                <input type="text" id="dni" name="dni">
                 <button type="submit" class="btn btn-outline-warning ms-2" name="buscar">Buscar</button>
             </form>
           </div>
+          <?php
+              if (isset($error)) {
+               echo '<div class="alert alert-danger">' . $error . '</div>';
+                }
+                ?>
         </div>
       </div>
     </div>
@@ -113,10 +119,10 @@ $asistencia = new Asistencia($conn);
         <div class="col">
           <div class="d-flex me-4 justify-content-evenly">
             <div class="d-flex">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-agregar-">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-agregar">
                 Nuevo Alumno
               </button>
-                <div class="modal fade" id="modal-agregar-" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-agregar-Label" aria-hidden="true">
+                <div class="modal fade" id="modal-agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-agregar-Label" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -288,19 +294,16 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="diasClases" class="fw-medium w-75 text-center align-middle lh-lg">Dias totales de clases</label>
 						<input type="number" name="diasClases" id="diasClases" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
 					</form>
 				</div>
 			</div>
 			<div class="row my-4">
 				<div class="col-12 mt-5 input-group mb-3">
 					<form class="d-flex w-50" action="" method="POST">
-						<label for="horarioPais" class="fw-medium w-75 text-center align-middle lh-lg">Seleccione el horario de su pais</label>
-						  <input type="number" name="horarioPais" id="horarioPais" class="form-control ms-2" required>
-                <datalist>
-
-                </datalist>
-						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
+						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 2</label>
+						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
 					</form>
 				</div>
 			</div>
@@ -309,7 +312,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 3</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
 					</form>
 				</div>
 			</div>
@@ -318,7 +321,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 4</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
 					</form>
 				</div>
 			</div>
@@ -327,7 +330,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 5</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
 					</form>
 				</div>
 			</div>
@@ -336,7 +339,7 @@ $asistencia = new Asistencia($conn);
 					<form class="d-flex w-50" action="" method="POST">
 						<label for="MODIFICARPORNECESARIO" class="fw-medium w-75 text-center align-middle lh-lg">Parametro global 6</label>
 						<input type="number" name="MODIFICARPORNECESARIO" id="MODIFICARPORNECESARIO" class="form-control ms-2" required>
-						<button type="submit" class="btn btn-outline-success ms-2">Aplicar</button>
+						<button type="submit" class="btn btn-outline-success ms-2">Success</button>
 					</form>
 				</div>
 			</div>
