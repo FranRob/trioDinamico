@@ -85,7 +85,7 @@ if (isset($error)) {
                       <td class="text-center"><?php echo $row['dni']; ?></td>
                       <td class="text-center"><?php echo $row['apellido']; ?></td>
                       <td class="text-center"><?php echo $row['nombre']; ?></td>
-                      <td class="text-center"><?php echo $row['fecha_nacimiento']; ?></td>
+                      <td class="text-center"><?php echo date('d/m/Y', strtotime($row['fecha_nacimiento']));?></td>
                       <td class="text-center">%<?php echo $porcentaje_asistencia; ?></td>
                   </tr>
               <?php endforeach; ?>

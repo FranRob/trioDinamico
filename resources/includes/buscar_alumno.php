@@ -24,4 +24,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar'])) {
         $error = "No se encontró ningún alumno con el DNI proporcionado.";
     }
 }
+$db->cerrarConexion();
 ?>

@@ -55,15 +55,18 @@
               </tr>
             </thead>
             <tbody>
+            <?php
+              $respuestaMostrarAlumnos=$alumno->mostrarTodos();
+              foreach($respuestaMostrarAlumnos as $row){?>
               <?php
-                $respuestaMostrarAlumnos=$alumno->mostrarTodos();
-                foreach($respuestaMostrarAlumnos as $row){
+                $alumno->dni = $row['dni'];
+                $porcentaje_asistencia = $alumno->calcularPorcentajeAsistencia();
               ?>
               <tr>
                 <td class="text-center"> <?php echo $row['dni'];?></td>
                 <td class="text-center"> <?php echo $row['apellido'];?></td>
                 <td class="text-center"> <?php echo $row['nombre'];?></td>
-                <td class="text-center"> <?php echo $row['fecha_nacimiento'];?></td>
+                <td class="text-center"> <?php echo date('d/m/Y', strtotime($row['fecha_nacimiento']));?></td>
                 <td class="text-center"> 
                   <div class="dropdown">
                     <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -125,7 +128,7 @@
                       </div>
                     </div>
                   </div>
-                  <td class="text-center">% Asistencia</td>
+                  <td class="text-center">% <?php echo $porcentaje_asistencia; ?></td>
                 </tr>
               <?php } ?>
               </tbody>
