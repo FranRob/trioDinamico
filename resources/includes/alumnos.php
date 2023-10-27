@@ -116,8 +116,8 @@
                         <div class="modal-body">
                           <form action="./resources/includes/eliminar_alumno.php" method="POST">
                             <fieldset>
-                              <label for="dni_eliminar">DNI del Alumno a Eliminar:</label>
-                              <input type="text" name="dni" id="dni_eliminar" required><br>
+                              <label for="dni_eliminar-<?php echo $row['dni']; ?>">DNI del Alumno a Eliminar:</label>
+                              <input type="text" name="dni" value="<?php echo $row['dni']; ?>" id="dni_eliminar" required><br>
                             </fieldset>
                         </div>
                         <div class="modal-footer">
