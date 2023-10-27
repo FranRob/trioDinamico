@@ -74,7 +74,7 @@
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-editar-<?php echo $row['dni']; ?>">Editar</a></li>
-                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-eliminar-">Eliminar</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-eliminar-<?php echo $row['dni']; ?>">Eliminar</a></li>
                     </ul>
                   </div>         
                 </td>
@@ -106,7 +106,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="modal fade" id="modal-eliminar-" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-eliminar-Label" aria-hidden="true">
+                  <div class="modal fade" id="modal-eliminar-<?php echo $row['dni']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-eliminar-Label" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
