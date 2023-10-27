@@ -7,19 +7,18 @@ $conn = $db->getConexion();
 $alumno = new Alumno($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dni = $_POST['dni'];
+    $dni_actual = $_POST['dni_actual'];
+    $nuevo_dni = $_POST['nuevo_dni'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
 
-
-    if ($alumno->modificar($dni, $nombre, $apellido, $fecha_nacimiento)){
+    if ($alumno->modificar($dni_actual, $nuevo_dni, $nombre, $apellido, $fecha_nacimiento)){
         echo 'Exitoso' . '<br>';
         echo '<a href="../../index.php"><button>Volver</button></a>';
-    }else{
+    } else {
         echo 'Error' . '<br>';
         echo '<a href="../../index.php"><button>Volver</button></a>';
     }
-
 }
 ?>
