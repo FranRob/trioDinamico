@@ -74,7 +74,7 @@
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-editar-<?php echo $row['dni']; ?>">Editar</a></li>
-                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-eliminar-">Eliminar</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-eliminar-<?php echo $row['dni']; ?>">Eliminar</a></li>
                     </ul>
                   </div>         
                 </td>
@@ -88,8 +88,9 @@
                         <div class="modal-body">
                           <form action="./resources/includes/modificar_alumno.php" method="POST">
                             <fieldset>
-                            <label for="dni_modificar-<?php echo $row['dni']; ?>">DNI del Alumno a Modificar:</label>
-                                <input type="text" name="dni" id="dni_modificar-<?php echo $row['dni']; ?>" required value="<?php echo $row['dni']; ?>"><br>
+                                <label for="dni_modificar-<?php echo $row['dni']; ?>">DNI del Alumno a Modificar:</label>
+                                <input type="hidden" name="dni_actual" value="<?php echo $row['dni']; ?>">
+                                <input type="text" name="nuevo_dni" id="nuevo_dni-<?php echo $row['dni']; ?>" required value="<?php echo $row['dni']; ?>"><br>
                                 <label for="apellido-<?php echo $row['dni']; ?>">Nuevo Apellido:</label>
                                 <input type="text" name="apellido" id="apellido-<?php echo $row['dni']; ?>" value="<?php echo $row['apellido']; ?>"><br>
                                 <label for="nombre-<?php echo $row['dni']; ?>">Nuevo Nombre:</label>
@@ -106,7 +107,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="modal fade" id="modal-eliminar-" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-eliminar-Label" aria-hidden="true">
+                  <div class="modal fade" id="modal-eliminar-<?php echo $row['dni']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-eliminar-Label" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">

@@ -53,17 +53,17 @@
         }
 
 
-        public function modificar($dni, $nombre, $apellido, $fecha_nacimiento) {
-            $query = "UPDATE alumno SET nombre = ?, apellido = ?, fecha_nacimiento = ? WHERE dni = ?";
+        public function modificar($dni_actual, $nuevo_dni, $nombre, $apellido, $fecha_nacimiento) {
+            $query = "UPDATE alumno SET dni = ?, nombre = ?, apellido = ?, fecha_nacimiento = ? WHERE dni = ?";
             $stmt = $this->con->prepare($query);
-
-            $stmt->bindParam(':nombre',$nombre);
-            $stmt->bindParam(':apellido',$apellido);
-            $stmt->bindParam(':fecha_nacimiento',$fecha_nacimiento);
-            $stmt->bindParam(':dni',$dni);
-
-
-            $stmt->execute([$nombre, $apellido, $fecha_nacimiento, $dni]);
+        
+            $stmt->bindValue(1, $nuevo_dni);
+            $stmt->bindValue(2, $nombre);
+            $stmt->bindValue(3, $apellido);
+            $stmt->bindValue(4, $fecha_nacimiento);
+            $stmt->bindValue(5, $dni_actual);
+        
+            $stmt->execute();
             
             // Verificar si la actualización fue exitosa
             if ($stmt->rowCount() > 0) {

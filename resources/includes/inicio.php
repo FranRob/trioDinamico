@@ -19,13 +19,13 @@
                     <label for="dni" class="form-label">DNI: </label>
                       <input type="number" name="dni">
                       <br>
-                    <label for="nombre" class="form-label">Nombre: </label>
-                      <input type="text" name="nombre">
-                      <br>
-                    <label for="apellido" class="form-label">Apellido: </label>
+                      <label for="apellido" class="form-label">Apellido: </label>
                       <input type="text" name="apellido">
                       <br>
-                    <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento: </label>
+                      <label for="nombre" class="form-label">Nombre: </label>
+                      <input type="text" name="nombre">
+                      <br>
+                      <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento: </label>
                       <input type="date" name="fecha_nacimiento">
                       <br>
                   </fieldset>
@@ -40,12 +40,12 @@
         </div>
       </div>
       
-    <div class="d-flex">
-      <form action="./index.php" method="POST">
-        <label for="dni" class="col-form-label">DNI:</label>
-          <input type="text" id="dni" name="dni">
-          <button type="submit" class="btn btn-outline-warning ms-2" name="buscar">Buscar</button>
-      </form>
+      <div class="d-flex">
+        <form action="./index.php" method="POST">
+          <label for="dni" class="col-form-label">DNI:</label>
+            <input type="text" id="dni" name="dni">
+            <button type="submit" class="btn btn-outline-primary" name="buscar">Buscar</button>
+        </form>
     </div>
   </div>
 </div>
