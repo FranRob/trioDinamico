@@ -25,6 +25,15 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
         $stmt->execute();
     }
 }
-echo 'Exitoso'.'<br>';
-echo '<a href="../../index.php"><button>Volver</button></a>';
+           echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
+           echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
+           echo ' <div class="container d-flex justify-content-center align-items-center">';
+           echo '     <div class="alert alert-success" role="alert">';
+           echo '         <h4 class="alert-heading col text-center">¡Asistencias registradas con éxito!</h4>';
+           echo '         <p>Presiona el botón para volver a la página principal</p>';
+           echo '         <hr>';
+           echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-success">Volver</button></a> </p>';
+           echo '       </div>';
+           echo ' </div>';
+           echo '</div>';
 ?>
