@@ -20,7 +20,6 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
         $stmt = $conn->prepare("INSERT INTO asistencias (dni_alumno, fecha) VALUES (:dni_alumno, :fecha)");
         $stmt->bindParam(':dni_alumno', $dni_alumno);
         $stmt->bindParam(':fecha', $fecha);
-
         // Ejecuta la consulta
         $stmt->execute();
     }
