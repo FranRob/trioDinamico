@@ -4,12 +4,13 @@ require_once './resources/class/Alumno.php';
 require_once './resources/class/Profesor.php';
 require_once './resources/class/Asistencia.php';
 require_once './resources/includes/buscar_alumno.php';
+require_once './resources/class/Parametros.php';
 
 date_default_timezone_set("America/Argentina/Buenos_Aires");
 $db = new Database();
 $conn = $db->getConexion();
 $alumno = new Alumno($conn);
-$profesor = new Profesor($conn);
+$parametro= new Parametros($conn);
 $asistencia = new Asistencia($conn);
 
 ?>
@@ -32,6 +33,7 @@ $asistencia = new Asistencia($conn);
     <?php include './resources/includes/alumnos.php'; ?>
     <?php include './resources/includes/asistencias.php'; ?>
     <?php include './resources/includes/configuracion.php'; ?>
+    
   </main>
     
 </body>
