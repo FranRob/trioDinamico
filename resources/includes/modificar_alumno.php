@@ -14,29 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
 
     if ($alumno->modificar($dni_actual, $nuevo_dni, $nombre, $apellido, $fecha_nacimiento)){
-        echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
-           echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
-           echo ' <div class="container d-flex justify-content-center align-items-center">';
-           echo '     <div class="alert alert-success" role="alert">';
-           echo '         <h4 class="alert-heading col text-center">¡Alumno modificado con éxito!</h4>';
-           echo '         <p>Presiona el botón para volver a la página principal</p>';
-           echo '         <hr>';
-           echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-success">Volver</button></a> </p>';
-           echo '       </div>';
-           echo ' </div>';
-           echo '</div>';
+        echo 'Exitoso' . '<br>';
+        echo '<a href="../../index.php"><button>Volver</button></a>';
     } else {
-        echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
-           echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
-           echo ' <div class="container d-flex justify-content-center align-items-center">';
-           echo '     <div class="alert alert-danger" role="alert">';
-           echo '         <h4 class="alert-heading col text-center">¡Error!</h4>';
-           echo '         <p>Presiona el botón para volver a la página principal</p>';
-           echo '         <hr>';
-           echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-danger">Volver</button></a> </p>';
-           echo '       </div>';
-           echo ' </div>';
-           echo '</div>';
+        echo 'Error' . '<br>';
+        echo '<a href="../../index.php"><button>Volver</button></a>';
     }
 }
 ?>
