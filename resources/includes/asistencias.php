@@ -2,6 +2,7 @@
   <div class="row py-3">
       <div class="col">
         <form method="POST" action="./resources/includes/agregar_asistencia.php">
+          <label for="fecha_diferida">Agregar fecha para asistencia</label>
             <input type="date" name="fecha_diferida"> <!-- Campo para ingresar una fecha diferida -->
               <table class="table table-bordered">
                   <thead>
