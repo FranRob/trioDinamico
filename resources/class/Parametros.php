@@ -7,7 +7,6 @@ class Parametros{
     }
 
     public function guardarConfiguracion($dias_de_clases, $porcentaje_promocion, $porcentaje_regular) {
-        echo "Dias de clases: $dias_de_clases, Porcentaje Promoción: $porcentaje_promocion, Porcentaje Regular: $porcentaje_regular";
     
         $query = "INSERT INTO parametros (dias_de_clases, porcentaje_promocion, porcentaje_regular) 
                   VALUES (:dias, :promocion, :regular)";

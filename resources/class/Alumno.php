@@ -6,6 +6,7 @@
         public $nombre;
         public $apellido;
         public $fecha_nacimiento;
+        public $totalAsistencias;
         private $con;
 
         //METODOS
@@ -95,28 +96,37 @@
             }
         }
         
-        public function calcularPorcentajeAsistencia() {
-            $sql_total_dias = "SELECT COUNT(DISTINCT fecha) AS total_dias FROM asistencias";
-            $result_total_dias = $this->con->query($sql_total_dias);
-            $row_total_dias = $result_total_dias->fetch(PDO::FETCH_ASSOC); // Usa FETCH_ASSOC para obtener un arreglo asociativo
-        
-            $total_dias = $row_total_dias['total_dias'];
-        
-            $sql_asistencias_alumno = "SELECT COUNT(DISTINCT fecha) AS asistencias FROM asistencias WHERE dni_alumno = :dni";
-            $stmt = $this->con->prepare($sql_asistencias_alumno);
-            $stmt->bindParam(':dni', $this->dni);
+
+        public function getTotalAsistencias(){
+
+            $sql = "SELECT COUNT(DISTINCT fecha) AS totalAsistencias FROM asistencias WHERE dni_alumno=:dni_alumno ";
+            $stmt = $this->con->prepare($sql);
+            $stmt->bindParam(':dni_alumno', $this->dni);
             $stmt->execute();
-            $row_asistencias_alumno = $stmt->fetch(PDO::FETCH_ASSOC); // Usa FETCH_ASSOC para obtener un arreglo asociativo
-        
-            $asistencias = $row_asistencias_alumno['asistencias'];
-        
-            if ($total_dias > 0) {
-                $porcentaje = ($asistencias / $total_dias) * 100;
-            } else {
-                $porcentaje = 0;
-            }
-        
-            return $porcentaje;
+
+            $resultado= $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->totalAsistencias = $resultado['totalAsistencias'];
+
+            return $this->totalAsistencias;
+
+        }
+
+
+
+        public function calcularPorcentajeAsistencia() {
+
+          $this->getTotalAsistencias();
+
+            $sql = "SELECT dias_de_clases FROM parametros";
+            $stmt = $this->con->prepare($sql);
+            $stmt->execute();
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            $diasDeClases = $resultado['dias_de_clases'];
+
+            $porcentajeAsistenciaSinFormato = ($this->totalAsistencias/$diasDeClases)*100;
+            $porcentajeAsistencia = number_format($porcentajeAsistenciaSinFormato, 1, '.', '');
+
+            return $porcentajeAsistencia;
         }
 
 
