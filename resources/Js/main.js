@@ -1,14 +1,18 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-  mostrarSeccion('inicio');
+  ocultarSecciones(); // Oculta todas las secciones al cargar la página
+  mostrarSeccion('inicio'); // Muestra la sección predeterminada
 });
 
 function mostrarSeccion(seccionId) {
+  ocultarSecciones(); // Oculta todas las secciones antes de mostrar la seleccionada
   const seccionSeleccionada = document.getElementById(seccionId);
   seccionSeleccionada.style.display = 'block';
+}
+
+function ocultarSecciones() {
   const secciones = document.querySelectorAll('.seccion');
   secciones.forEach(seccion => {
-    seccion.style.display = (seccion.id === seccionId) ? 'block' : 'none';
+    seccion.style.display = 'none';
   });
 }
 
