@@ -2,6 +2,7 @@
 require_once '../db/conexion.php';
 require_once '../class/Alumno.php';
 require_once '../class/Asistencia.php';
+date_default_timezone_set("America/Argentina/Buenos_Aires");
 
 
 $db = new Database();
@@ -9,7 +10,17 @@ $conn = $db->getConexion();
 $alumno = new Alumno($conn);
 $asistencia = new Asistencia($conn);
 
-$fecha = date("Y-m-d-H-i");
+
+$fecha_diferida = $_POST['fecha_diferida'] ?? null;
+
+if ($fecha_diferida) {
+    // Si se proporciona una fecha diferida, utiliza esa fecha para guardar la asistencia
+    $fecha_asistencia = $fecha_diferida;
+} else {
+    // Si no se proporciona una fecha diferida, usa la fecha y hora actuales del sistema
+    $fecha_asistencia = date("Y-m-d H:i:s");
+}
+
 foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
     // Verifica si el valor de la checkbox es "on"
     if ($valor_checkbox == 'on') {
@@ -19,11 +30,12 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
         // Prepara una consulta SQL para insertar la asistencia
         $stmt = $conn->prepare("INSERT INTO asistencias (dni_alumno, fecha) VALUES (:dni_alumno, :fecha)");
         $stmt->bindParam(':dni_alumno', $dni_alumno);
-        $stmt->bindParam(':fecha', $fecha);
+        $stmt->bindParam(':fecha', $fecha_asistencia);
         // Ejecuta la consulta
         $stmt->execute();
     }
 }
+
            echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
            echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
            echo ' <div class="container d-flex justify-content-center align-items-center">';

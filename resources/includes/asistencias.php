@@ -1,7 +1,8 @@
 <section class="container mt-5 seccion" id="asistencias">
   <div class="row py-3">
       <div class="col">
-          <form method="POST" action="./resources/includes/agregar_asistencia.php"> <!-- Añade un formulario -->
+        <form method="POST" action="./resources/includes/agregar_asistencia.php">
+            <input type="date" name="fecha_diferida"> <!-- Campo para ingresar una fecha diferida -->
               <table class="table table-bordered">
                   <thead>
                       <tr>
