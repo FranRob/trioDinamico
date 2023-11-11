@@ -29,7 +29,17 @@ nav a {
     font-weight: bold; /* Texto en negrita */
 }
 
+.fondo-verde{
+    background-color: green;
+}
 
+.fondo-amarillo{
+    background-color: yellow;
+}
+
+.fondo-rojo{
+    background-color: red;
+}
 
 
 

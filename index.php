@@ -1,7 +1,6 @@
 <?php
 require_once './resources/db/conexion.php';
 require_once './resources/class/Alumno.php';
-require_once './resources/class/Profesor.php';
 require_once './resources/class/Asistencia.php';
 require_once './resources/includes/buscar_alumno.php';
 require_once './resources/class/Parametros.php';

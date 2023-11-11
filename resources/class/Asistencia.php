@@ -28,5 +28,25 @@
                 return false; // Fallo
             }
         }
+
+        public function getTotalAsistencias(){
+
+            $sql = "SELECT COUNT(DISTINCT fecha) AS totalAsistencias FROM asistencias WHERE dni_alumno=:dni_alumno ";
+            
+            $stmt = $this->con->prepare($sql);
+
+            $stmt->bindParam(':dni_alumno', $this->dni_alumno);
+
+            $stmt->execute();
+
+            $resultado= $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $totalAsistencias = $resultado['totalAsistencias'];
+
+           
+            var_dump($totalAsistencias);
+            return $totalAsistencias;
+
+        }
     }
 ?> 
