@@ -1,14 +1,18 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-  mostrarSeccion('inicio');
+  ocultarSecciones(); // Oculta todas las secciones al cargar la página
+  mostrarSeccion('inicio'); // Muestra la sección predeterminada
 });
 
 function mostrarSeccion(seccionId) {
+  ocultarSecciones(); // Oculta todas las secciones antes de mostrar la seleccionada
   const seccionSeleccionada = document.getElementById(seccionId);
   seccionSeleccionada.style.display = 'block';
+}
+
+function ocultarSecciones() {
   const secciones = document.querySelectorAll('.seccion');
   secciones.forEach(seccion => {
-    seccion.style.display = (seccion.id === seccionId) ? 'block' : 'none';
+    seccion.style.display = 'none';
   });
 }
 
@@ -16,11 +20,14 @@ function seleccionarTodos() {
   // Obtiene una lista de todas las casillas de verificación
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   
-  // Itera a través de todas las casillas de verificación y establece su valor en "ON"
+  // Itera a través de todas las casillas de verificación
   checkboxes.forEach(function (checkbox) {
-    checkbox.checked = true;
+    // Cambia el valor de la casilla de verificación al valor opuesto
+    checkbox.checked = !checkbox.checked;
   });
 }
+
+
 
 function coloresEstadoAsistencias() {
   const campoPorcentaje = document.querySelectorAll('.table-data-porcentaje');
@@ -28,7 +35,7 @@ function coloresEstadoAsistencias() {
   campoPorcentaje.forEach(function(porcentajeTd) {
     const contenidoTd = porcentajeTd.innerHTML;
     let porcentajeNumero = parseFloat(contenidoTd.replace('%', ''));
-    console.log("Porcentaje como número:", porcentajeNumero);
+    
     if (porcentajeNumero >= 80) {
       porcentajeTd.style.backgroundColor = '#50CA35';
     }
@@ -41,7 +48,7 @@ function coloresEstadoAsistencias() {
   });
 }
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("DOM completamente cargado. Ejecutando coloresEstadoAsistencias...");
+  console.log("DOM completamente cargado. Bienvenidos a TD asistencias para profes");
   coloresEstadoAsistencias();
 });
 

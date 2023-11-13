@@ -69,8 +69,8 @@
                 <td class="text-center"> <?php echo date('d/m/Y', strtotime($row['fecha_nacimiento']));?></td>
                 <td class="text-center"> 
                   <div class="dropdown">
-                    <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      CRUD
+                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-gear"></i>
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-editar-<?php echo $row['dni']; ?>">Editar</a></li>
@@ -129,7 +129,7 @@
                       </div>
                     </div>
                   </div>
-                  <td class="text-center">% <?php echo $porcentaje_asistencia; ?></td>
+                  <td class="text-center table-data-porcentaje">% <?php echo $porcentaje_asistencia; ?></td>
                 </tr>
               <?php } ?>
               </tbody>

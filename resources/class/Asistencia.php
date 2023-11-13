@@ -11,13 +11,13 @@
             $this->con = $db;
         }
 
-        public function agregar($dni_alumno, $fecha) {
+        public function agregar($dni_alumno, $fecha_asistencia) {
             //Preparar consulta
             $query = "INSERT INTO asistencias(dni_alumno, fecha) VALUES (:dni_alumno, :fecha)";
             $stmt = $this->con->prepare($query);
             //bindear parametros
             $stmt-> bindParam(':dni_alumno', $dni_alumno);
-            $stmt-> bindParam(':fecha', $fecha);
+            $stmt-> bindParam(':fecha', $fecha_asistencia);
             //ejecutar consulta
             $stmt->execute();
 

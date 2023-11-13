@@ -34,10 +34,7 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
 
         // Si no hay asistencia para este alumno en la fecha dada, se procede a insertar
         if ($result['count'] == 0) {
-            $stmt = $conn->prepare("INSERT INTO asistencias (dni_alumno, fecha) VALUES (:dni_alumno, :fecha)");
-            $stmt->bindParam(':dni_alumno', $dni_alumno);
-            $stmt->bindParam(':fecha', $fecha_asistencia);
-            $stmt->execute();
+           $asistencia->agregar($dni_alumno, $fecha_asistencia);
 
             echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
             echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
