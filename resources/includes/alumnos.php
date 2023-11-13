@@ -1,4 +1,4 @@
-<section class="container mt-5 seccion" id="alumnos">
+<section class="container mt-4 seccion" id="alumnos">
       <div class="row"> 
         <div class="col">
           <div class="d-flex me-4 justify-content-evenly">
@@ -43,7 +43,7 @@
       </div>
       <div class="row py-3">
         <div class="col">
-          <table class="table table-bordered">
+          <table class="table table-hover custom-table">
             <thead>
               <tr>
                 <th class="text-center">Dni</th>

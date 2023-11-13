@@ -1,9 +1,9 @@
-<section class="container mt-5 seccion" id="asistencias">
+<section class="container mt-2 seccion" id="asistencias">
   <div class="row py-3">
       <div class="col">
         <form method="POST" action="./resources/includes/agregar_asistencia.php">
           <div class="row d-flex justify-content-evenly align-items-center m-3">
-            <div class="col-5">
+            <div class="col-5 fw-medium">
               <label for="fecha_diferida">Agregar fecha para asistencia</label>
                 <input type="datetime-local" name="fecha_diferida"> <!-- Campo para ingresar una fecha diferida -->
             </div>
@@ -11,8 +11,7 @@
               <button type="button" class="btn btn-outline-info" onclick="seleccionarTodos();">Seleccionar todos</button>
             </div>
           </div>
-          
-          <table class="table table-bordered">
+          <table class="table table-hover custom-table">
               <thead>
                   <tr>
                     <th class="text-center">Apellido</th>
@@ -41,7 +40,9 @@
                   <?php } ?>
               </tbody>
           </table>
+          <div class="mx-auto p-2" style="width: 200px;">
           <button type="submit" class="btn btn-outline-success">Enviar Asistencias</button>
+          </div>
         </form>
       </div>
   </div>

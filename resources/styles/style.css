@@ -1,13 +1,14 @@
   /* Estilos CSS para el encabezado */
 header {
-    background-color: #333; /* Color de fondo */
+    background: linear-gradient(70deg, rgb(11, 11, 179), rgb(97, 255, 221)); /* Color de fondo */
     color: white; /* Color del texto */
+    font-style: initial;
     text-align: center; /* Alineación del texto */
     padding: 10px; /* Espaciado interno */
 }
 
 nav {
-    background-color: #444; /* Color de fondo del menú */
+    background-color: transparent; /* Color de fondo del menú */
     padding: 5px 0; /* Espaciado interno superior e inferior */
     text-align: center; /* Alineación del texto en el menú */
 }
@@ -29,6 +30,28 @@ nav a {
     font-weight: bold; /* Texto en negrita */
 }
 
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    
+}
+
+.custom-table th {
+border: 1px solid rgba(33, 20, 214, 0.486);
+color: white;
+padding: 10px;
+text-align: center;
+background:rgb(11, 11, 179);
+}
+
+.custom-table td {
+    border: 1px solid rgba(152, 151, 155, 0.486);
+    padding: 10px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+}
+
 .seccion {
     display: none;
   }
@@ -37,4 +60,5 @@ nav a {
     font-weight: 600;
     color: wheat;
 }
+
 
