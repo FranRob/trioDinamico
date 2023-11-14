@@ -1,6 +1,6 @@
 <section class="container mt-5 seccion" id="configuracion">
     <div class="row d-flex align-items-center alert alert-primary text-center mt-5">
-        <p class="my-auto">En los siguientes inputs vas a poder configurar aspectos importantes para el funcionamiento de la app</p>
+        <p class="my-auto">En los siguientes campos vas a poder configurar aspectos importantes para el funcionamiento de la app</p>
     </div>
     <div class="row my-4">
         <div class="col-12 mt-5">
