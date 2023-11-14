@@ -1,6 +1,6 @@
   /* Estilos CSS para el encabezado */
 header {
-    background: linear-gradient(70deg, rgb(11, 11, 179), rgb(97, 255, 221)); /* Color de fondo */
+    background: linear-gradient(70deg, #005582, #64CCC5); /* Color de fondo */
     color: white; /* Color del texto */
     font-style: initial;
     text-align: center; /* Alineación del texto */
@@ -38,18 +38,18 @@ nav a {
 }
 
 .custom-table th {
-border: 1px solid rgba(33, 20, 214, 0.486);
+border: 1px solid #005582;
 color: white;
 padding: 10px;
 text-align: center;
-background:rgb(11, 11, 179);
+background: #005582;
 }
 
 .custom-table td {
     border: 1px solid rgba(152, 151, 155, 0.486);
     padding: 10px;
     text-align: center;
-    background: rgb(255, 255, 255);
+    background: #EEEEEE;
 }
 
 .seccion {
@@ -58,7 +58,49 @@ background:rgb(11, 11, 179);
 
 .table-data-porcentaje{
     font-weight: 600;
-    color: wheat;
+    
 }
 
 
+.btn-color-replace{
+    background: #005582;
+    color: white;
+    border: none;
+}
+
+.btn-color-replace:hover{
+    background: #0f73a8;
+    color: white;
+    border: none;
+}
+
+.btn-color-replace:active{
+    background: #1c5675 !important;
+    color: white !important;
+    border: none;
+}
+
+.dropdown-item:hover{
+    background: #0f73a8;
+    color: white;
+
+}
+
+.menu-item:hover{
+    color:#abbfca;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #005582; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #EEEEEE;
+}

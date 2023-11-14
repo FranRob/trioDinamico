@@ -4,11 +4,11 @@
         <form method="POST" action="./resources/includes/agregar_asistencia.php">
           <div class="row d-flex justify-content-evenly align-items-center m-3">
             <div class="col-5 fw-medium">
-              <label for="fecha_diferida">Agregar fecha para asistencia</label>
-                <input type="datetime-local" name="fecha_diferida"> <!-- Campo para ingresar una fecha diferida -->
+              <label for="fecha_diferida">Asistencia tardía:</label>
+                <input type="datetime-local" name="fecha_diferida" id="fecha_diferida"> <!-- Campo para ingresar una fecha diferida -->
             </div>
             <div class="col-3 me-5">
-              <button type="button" class="btn btn-outline-info" onclick="seleccionarTodos();">Seleccionar todos</button>
+              <button type="button" class="btn btn-outline-info btn-color-replace" onclick="seleccionarTodos();">Seleccionar todos</button>
             </div>
           </div>
           <table class="table table-hover custom-table">

@@ -3,7 +3,7 @@
   <div class="col">
     <div class="d-flex me-4 justify-content-evenly">
       <div class="d-flex">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-agregar-">
+        <button type="button" class="btn btn-primary btn-color-replace" data-bs-toggle="modal" data-bs-target="#modal-agregar-">
           Nuevo Alumno
         </button>
         <div class="modal fade" id="modal-agregar-" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-agregar-Label" aria-hidden="true">
@@ -17,22 +17,22 @@
                 <form action="./resources/includes/agregar_alumno.php" method="POST">
                   <fieldset>
                     <label for="dni" class="form-label">DNI: </label>
-                      <input type="number" name="dni">
+                      <input type="number" name="dni" required>
                       <br>
                       <label for="apellido" class="form-label">Apellido: </label>
-                      <input type="text" name="apellido">
+                      <input type="text" name="apellido" required>
                       <br>
                       <label for="nombre" class="form-label">Nombre: </label>
-                      <input type="text" name="nombre">
+                      <input type="text" name="nombre" required>
                       <br>
                       <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento: </label>
-                      <input type="date" name="fecha_nacimiento">
+                      <input type="date" name="fecha_nacimiento" required>
                       <br>
                   </fieldset>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" name="agregar" class="btn btn-primary">Agregar</button>
+                    <button type="submit" name="agregar" class="btn btn-primary btn-color-replace">Agregar</button>
                 </form>
               </div>
             </div>
@@ -42,9 +42,9 @@
       
       <div class="d-flex">
         <form action="./index.php" method="POST">
-          <label for="dni" class="col-form-label">DNI:</label>
-            <input type="text" id="dni" name="dni">
-            <button type="submit" class="btn btn-outline-primary" name="buscar">Buscar</button>
+          <label for="dni" class="col-form-label align-middle">DNI:</label>
+            <input type="text" id="dni" name="dni" class="align-middle">
+            <button type="submit" class="btn btn-outline-primary btn-color-replace align-middle" name="buscar">Buscar</button>
         </form>
     </div>
   </div>
