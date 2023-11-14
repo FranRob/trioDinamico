@@ -19,7 +19,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
            echo ' <div class="container d-flex justify-content-center align-items-center">';
            echo '     <div class="alert alert-success" role="alert">';
            echo '         <h4 class="alert-heading col text-center">¡Alumno eliminado con éxito!</h4>';
-           echo '         <p>Para volver a la página principal presiona el botón</p>';
            echo '         <hr>';
            echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-success">Volver</button></a> </p>';
            echo '       </div>';
@@ -31,7 +30,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
            echo ' <div class="container d-flex justify-content-center align-items-center">';
            echo '     <div class="alert alert-danger" role="alert">';
            echo '         <h4 class="alert-heading col text-center">¡Error!</h4>';
-           echo '         <p>Para volver a la página principal presiona el botón</p>';
            echo '         <hr>';
            echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-danger">Volver</button></a> </p>';
            echo '       </div>';

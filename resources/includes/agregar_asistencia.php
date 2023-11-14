@@ -41,7 +41,6 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
             echo ' <div class="container d-flex justify-content-center align-items-center">';
             echo '     <div class="alert alert-success" role="alert">';
             echo '         <h4 class="alert-heading col text-center">¡Asistencias registradas con éxito!</h4>';
-            echo '         <p>Presiona el botón para volver a la página principal</p>';
             echo '         <hr>';
             echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-success">Volver</button></a> </p>';
             echo '       </div>';
@@ -53,7 +52,7 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
             echo ' <div class="container d-flex justify-content-center align-items-center">';
             echo '     <div class="alert alert-danger" role="alert">';
             echo '         <h4 class="alert-heading col text-center">¡Error!</h4>';
-            echo '         <p> La asistencia ya fue cargada para esa fecha <p>';       
+            echo '         <p class="text-center">La asistencia ya fue cargada para esa fecha<p>';       
             echo '         <hr>';
             echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-danger">Volver</button></a> </p>';
             echo '       </div>';
