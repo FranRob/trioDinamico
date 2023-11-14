@@ -1,21 +1,27 @@
 # trioDinamico
+Para poder acceder a nuestro programa vas a necesitar lo siguiente:
+
+*Una cuenta de github con acceso a nuestro codigo (paga la prata), para que puedas descargarlo a traves de un archivo .zip o clonarlo en caso de tener el programa "Github Desktop".
+
+*Vas a necesitar instalar Laragon instalarlo en tu computadora y ademas deberas localizar la carpeta "www". Esta carpeta esta ubicada en el disco C -> Laragon -> www  
+Dentro de esa carpeta deberas guardar nuestro programa.
 
 
+paso 1: ingresar a github con tu cuenta 
+paso 2: ingresar al siguiente repositorio una vez tengas acceso https://github.com/FranRob/trioDinamico
 
+paso 3: Localizar el boton verde <>Code y descargar como .zip 
 
-Requisitos del sistema:
+Paso 4: Entrar en la carpeta www, pegar el .zip dentro y luego descomprimir. (borrar o guardar el archivo
+zip en un lugar seguro)
 
-Se solicita por parte del profesor Javier Parra, realizar un sistema que permita dar de alta/baja/modificar alumnos, dar de alta/baja/modificar profesores y registrar las asistencias del año para concluir así con un porcentaje de su cantidad de asistencias que refleje si el alumno se encuentra en condicion de libre, regular o promocionado.
+paso 5: Iniciar el programa Laragon y una vez dentro presionar el boton iniciar todo, luego, presionar
+el boton base de datos. Aparecera un administrador de sesiones en la que deberas hacer doble click para 
+abrir "Laragon.MySQL" una vez dentro en la barra de herramientas horizontal que esta arriba (iconos)
+buscar el icono de carpeta (al pasar el mouse por encima dirá "cargar archivo sql"), presionar el boton 
+y buscar la carpeta de nuestro proyecto, dentro habra un archivo llamado "bd_trioDinamico.sql". selecciona ese archivo y luego presionar el boton a la izquierda del icono de carpeta, es un icono de play o flecha apuntando a la derecha. Con eso ya tendras la base de datos cargada.
 
-El sistema para tomar asistencia se  realizará con PHP, usando objetos (clases): herencia, encapsulamiento, traits, metodos estaticos. HTML + bootstrap(Local)+jsvanilla. MySQL - script de la base de datos = .sql
+Paso 6: en tu navegador ingresa a http://localhost/ 
 
-- El sistema además de dar ABM(alta, baja y modificación, CRUD) de alumnos y profesores, debe contar con una interfaz gráfica.
-- La tabla Alumno, debe contar con los campos: Apellido, Nombre, DNI, Fecha Nac.
-- La tabla Asistencias cuenta con: id_asistencia, id_alumno, fecha, estado_asistencia.
-- Realizar un listado alfabeticamente por apellido.
-- Permitir cargar asistencias.
-- Se debe ingresar la cantidad de clases en el año y confirmar si con las asistencias el alumno se encuentra en condición para promocionar o no.
-- Mysql tiene que persistir, es decir, no se deben perder los datos.
-- Tener en cuenta las validaciones, por ejemplo: si yo doy de alta un alumno que ya existe, que el sistema de mensaje de error.
-- La pantalla principal (index.html) debe permitir ingresar el nombre/dni en una caja junto a un botón buscar, revelando datos del alumno y que permita ponerle la asistencia. Además debe contar con un menú de Alumno y de Profesor para realizar las modificaciones que necesite el usuario y ver un listado completo.
--Agregar un menú de configuración  donde se pueda ingresar la cantidad de clases total para el año dentro de la tabla parámetros.
+paso 7: ya estas en nuestro sistema. Ve a la pestaña configuracion para ajustar los parametros
+segun tus necesidades.
