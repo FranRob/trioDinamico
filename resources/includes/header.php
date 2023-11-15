@@ -1,5 +1,5 @@
 <header class="container-fluid">
-        <h1>Sistema asistencia</h1>
+        <h1>Edu CheckIn</h1>
         <nav>
             <ul>
                 <li><a class="menu-item" href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>

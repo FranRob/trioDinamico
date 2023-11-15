@@ -21,8 +21,8 @@ $asistencia = new Asistencia($conn);
   <link rel="stylesheet" type="text/css" href="./resources/bootstrap-5.3.2/css/bootstrap.min.css" >
   <link rel="stylesheet" href="./resources/bootstrap-5.3.2/icons/bootstrap-icons.min.css">
   <link rel="stylesheet" href="./resources/styles/style.css">
-
-  <title>TD Asistencias para profes</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Edu CheckIn</title>
 </head>
 <body>
 
