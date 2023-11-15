@@ -4,12 +4,10 @@ require_once '../class/Alumno.php';
 require_once '../class/Asistencia.php';
 date_default_timezone_set("America/Argentina/Buenos_Aires");
 
-
 $db = new Database();
 $conn = $db->getConexion();
 $alumno = new Alumno($conn);
 $asistencia = new Asistencia($conn);
-
 
 $fecha_diferida = $_POST['fecha_diferida'] ?? null;
 
@@ -21,8 +19,12 @@ if ($fecha_diferida) {
     $fecha_asistencia = date("Y-m-d H:i:s");
 }
 
+$asistenciaSeleccionada = false;
+
 foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
     if ($valor_checkbox == 'on') {
+        $asistenciaSeleccionada = true;
+
         $dni_alumno = str_replace('asistencia_', '', $nombre_checkbox);
 
         // Verificar si ya existe una asistencia para este alumno en la fecha dada
@@ -34,7 +36,7 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
 
         // Si no hay asistencia para este alumno en la fecha dada, se procede a insertar
         if ($result['count'] == 0) {
-           $asistencia->agregar($dni_alumno, $fecha_asistencia);
+            $asistencia->agregar($dni_alumno, $fecha_asistencia);
 
             echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
             echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
@@ -46,22 +48,33 @@ foreach ($_POST as $nombre_checkbox => $valor_checkbox) {
             echo '       </div>';
             echo ' </div>';
             echo '</div>';
-        }else{
+        } else {
             echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
             echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
             echo ' <div class="container d-flex justify-content-center align-items-center">';
             echo '     <div class="alert alert-danger" role="alert">';
             echo '         <h4 class="alert-heading col text-center">¡Error!</h4>';
-            echo '         <p class="text-center">La asistencia ya fue cargada para esa fecha<p>';       
+            echo '         <p class="text-center">La asistencia ya fue cargada para esa fecha<p>';
             echo '         <hr>';
             echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-danger">Volver</button></a> </p>';
             echo '       </div>';
             echo ' </div>';
             echo '</div>';
-
         }
     }
 }
 
-
+if (!$asistenciaSeleccionada) {
+    echo ' <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">';
+    echo '<div class="container d-flex justify-content-center align-items-center vh-100 w-50">';
+    echo ' <div class="container d-flex justify-content-center align-items-center">';
+    echo '     <div class="alert alert-danger" role="alert">';
+    echo '         <h4 class="alert-heading col text-center">¡Error!</h4>';
+    echo '         <p class="text-center">Debe seleccionar al menos un alumno para enviar asistencia.<p>';
+    echo '         <hr>';
+    echo '                    <p class="mb-0 col text-center"> <a href="../../index.php"><button type="button" class="btn btn-outline-danger">Volver</button></a> </p>';
+    echo '       </div>';
+    echo ' </div>';
+    echo '</div>';
+}
 ?>

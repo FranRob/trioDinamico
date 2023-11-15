@@ -4,7 +4,7 @@
         <form method="POST" action="./resources/includes/agregar_asistencia.php">
           <div class="row d-flex justify-content-evenly align-items-center m-3">
             <div class="col-5 fw-medium">
-              <label for="fecha_diferida">Asistencia tardía:</label>
+              <label for="fecha_diferida">Asistencia diferida:</label>
                 <input type="datetime-local" name="fecha_diferida" id="fecha_diferida"> <!-- Campo para ingresar una fecha diferida -->
             </div>
             <div class="col-3 me-5">
